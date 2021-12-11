@@ -277,7 +277,7 @@ class sudoku{
 			[[nodiscard]] constexpr unsigned int getBoxMask(int box) const noexcept;
 
 
-		explicit sudoku(unsigned int initial_values[9]) noexcept {
+		sudoku(unsigned int initial_values[9]) noexcept {
 
 			/*
 			line[1] = 900027050;
@@ -317,7 +317,7 @@ class sudoku{
 
 		}
 
-		explicit sudoku(std::ifstream& file) noexcept {
+		sudoku(std::ifstream& file) noexcept {
 
 			for(int number = 1; number < 10; number++){
 
