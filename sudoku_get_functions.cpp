@@ -149,7 +149,12 @@ constexpr void sudoku::getColumns(int num, unsigned int columns[]) noexcept {
 
 }
 
+#if defined(__clang__)
+#pragma message("Clang does not allow to declare this function with constexpr as of version 14") 
+[[nodiscard]] unsigned int sudoku::getBoxPossibilities(int num, int box_index) const noexcept {
+#else
 [[nodiscard]] constexpr unsigned int sudoku::getBoxPossibilities(int num, int box_index) const noexcept {
+#endif
 
 	const int row_index1 = boxToRow(box_index, 1);
 	const int row_index2 = boxToRow(box_index, 4);

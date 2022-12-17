@@ -266,7 +266,12 @@ class sudoku{
 
 			//box
 			[[nodiscard]] constexpr unsigned int getBoxPossibility(int num, int box) const noexcept;
+			
+#if defined(__clang__)
+			[[nodiscard]] unsigned int getBoxPossibilities(int num, int box_index) const noexcept;
+#else
 			[[nodiscard]] constexpr unsigned int getBoxPossibilities(int num, int box_index) const noexcept;
+#endif
 
 			//count
 			[[nodiscard]] constexpr int getCount(int num) const noexcept;
