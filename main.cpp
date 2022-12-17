@@ -37,7 +37,7 @@ int main(){
 
 	}();
 
-	printf("%d\n", num_puzzles);
+	//printf("%d\n", num_puzzles);
 
   	/*while(i < 100 & ()) {
 
@@ -54,6 +54,8 @@ int main(){
 	unsigned int num_iter = 0;
 	unsigned int num_sameRowColumnBox = 0;
 	int solved_bad = 0;
+	
+	timer timer;
 
 	for(int i = 0; i < num_puzzles; i++){
 
@@ -69,9 +71,9 @@ int main(){
 		initial_values[7] =    803000;
 		initial_values[8] = 501000600;
 
+		sudoku sudoku(initial_values);*/
 		//timer timer;
-		sudoku sudoku(initial_values);
-		//timer.print_time("inicializace: ");*/
+		//timer.print_time("inicializace: ");
 
 		sudoku sudoku(file);
 
@@ -162,10 +164,14 @@ int main(){
 		solved_bad += sudoku.is_bad();
 
 	}
+	
+	timer.print_time();
 
 	solved_bad = solved_bad - (num_puzzles - num_solved);
+	
+	printf("solved %d\nsolved bad %d\n", num_solved, solved_bad);
 
-	printf("num solved %d\nnum solved bad %d\navg iter cnt %f\navg sameRowColumnBox cnt %f\n ", num_solved, solved_bad, (double)num_iter/num_puzzles, (double)num_sameRowColumnBox/num_puzzles);
+	//printf("num solved %d\nnum solved bad %d\navg iter cnt %f\navg sameRowColumnBox cnt %f\n ", num_solved, solved_bad, (double)num_iter/num_puzzles, (double)num_sameRowColumnBox/num_puzzles);
 
     return 0;
 }
