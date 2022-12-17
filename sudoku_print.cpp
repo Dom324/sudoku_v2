@@ -4,7 +4,7 @@
 	#include "define.h"
 #endif
 
-void print_bits(unsigned int num, int num_of_bits, int size){
+void static print_bits(unsigned int num, int num_of_bits, int size){
 
 	if(num_of_bits >= size * 8) return;
 
